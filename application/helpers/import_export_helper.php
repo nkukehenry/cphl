@@ -49,7 +49,7 @@ if (!function_exists('make_pdf')) {
         ini_set('max_execution_time',0);
         @$ci->mpdf->pdf->WriteHTML($PDFContent); 
 
-        @$ci->mpdf->pdf->SetHTMLFooter("<br><br>Printed/ Accessed on: <b>".date('d F,Y h:i A')."</b><br style='font-size: 9px !imporntant;'>"." Source: NCDA Management System <br>" .base_url());
+        @$ci->mpdf->pdf->SetHTMLFooter("<br><br>Printed/ Accessed on: <b>".date('d F,Y h:i A')."</b><br style='font-size: 9px !imporntant;'>"." Source: ".setting()->title."<br>" .base_url());
         //download it D save F.
         @$ci->mpdf->pdf->Output($file_name.".pdf",$action);
         
