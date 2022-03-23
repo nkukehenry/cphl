@@ -9,30 +9,18 @@ class Dashboard extends MX_Controller {
 
 			$this->dashmodule="dashboard";
 			$this->load->model("dashboard_mdl",'dash_mdl');
-			$this->load->model("dashboard_mdl",'dash_mdl');
-			
-			
-
-			}
+		
+	}
 
 	public function index()
 	{
-		$data['module']=$this->dashmodule;
-		$data['title']="Main Dashboard";
-		$data['uptitle']="Main Dashboard";
-		$data['view']="home";
-		$data['activeProjects']=Modules::run('projects/ActiveProjects');
-		$data['completedProjects']=Modules::run('projects/CompletedProjects');
-		$data['topFiveProjects']=Modules::run('projects/getTopFive');
-		$data['activeBranches']=Modules::run('districts/ActiveBranches');
-		$data['contacts']= $this->dash_mdl->countContactCatalog();
-		
-		echo Modules::run('templates/main',$data);
+		echo Modules::run('reports/visual_report',null);
 	}
+
 	public function dashboardData(){
 		
 		$data = $this->dash_mdl->getData();
-	echo json_encode($data);
+		echo json_encode($data);
 	}
 
 

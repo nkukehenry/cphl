@@ -7,7 +7,8 @@ class Dashboard_mdl extends CI_Model {
 	public function __Construct(){
 
 		parent::__Construct();
-		$this->department=$this->session->userdata['department_id'];
+
+		$this->department= @$this->session->userdata['department_id'];
 
 	}
     public function getData(){

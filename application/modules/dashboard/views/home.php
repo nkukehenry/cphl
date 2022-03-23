@@ -7,14 +7,14 @@
           <!-- small box -->
           <div class="small-box bg-info">
             <div class="inner">
-              <h5><?php echo $activeProjects; ?></h5>
+              <h5><?php echo $activeStrategys; ?></h5>
 
-              <p>Active Projects</p>
+              <p>Active Strategys</p>
             </div>
             <div class="icon">
               <i class="ion ion-bag"></i>
             </div>
-            <a href="<?=site_url('project-list')?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?=site_url('strategy-list')?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -22,14 +22,14 @@
           <!-- small box -->
           <div class="small-box bg-success">
             <div class="inner">
-              <h5><?php echo $completedProjects; ?><sup style="font-size: 20px"></sup></h5>
+              <h5><?php echo $completedStrategys; ?><sup style="font-size: 20px"></sup></h5>
 
-              <p>Completed Projects</p>
+              <p>Completed Strategys</p>
             </div>
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
             </div>
-            <a href="<?=site_url('project-list')?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?=site_url('strategy-list')?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -38,7 +38,7 @@
           <div class="small-box bg-warning">
             <div class="inner">
               <h5><?php echo $activeBranches; ?></h5>
-              <p>Branches</p>
+              <p>Districts</p>
             </div>
             <div class="icon">
               <i class="ion ion-person-add"></i>
@@ -73,7 +73,7 @@
             <div class="card-header">
               <h5 class="card-title">
                 <i class="fas fa-chart-pie mr-1"></i>
-                Latest Projects
+                Latest Strategys
               </h5>
               <div class="card-tools"></div>
               
@@ -83,10 +83,10 @@
                 <!-- Morris chart - Sales -->
                 <div class="chart tab-pane active" style="position: relative; height: 430px; color:black!important">
                   <ul>
-                    <?php foreach($topFiveProjects as $row){ ?>
+                    <?php foreach($topFiveStrategys as $row){ ?>
                       <li>
                           <a style="color:black!important" href="<?=site_url('objective-list')?>/<?php echo $row->id; ?>">
-                          <?php echo $row->project_name; ?></a>
+                          <?php echo $row->strategy_name; ?></a>
                           <hr>
                       </li> 
                     <?php } ?>
@@ -107,7 +107,7 @@
 
               <h5 class="card-title">
                 <i class="far fa-calendar-alt"></i>
-                Meetings Calendar
+                 Calendar
               </h5>
             </div>
             <!-- /.card-header -->

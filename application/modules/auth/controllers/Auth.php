@@ -165,7 +165,7 @@ class Auth extends MX_Controller {
       	session_unset();
       	session_destroy();
 
-      		redirect("auth");
+      		redirect("dashboard");
       }
 
     public function getUserByid($id){

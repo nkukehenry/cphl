@@ -1,12 +1,12 @@
 <div class="row">
         <div class="col-md-6">
         <div class="form-group">
-                <label>Project Title</label>
+                <label>Strategy Title</label>
 
-                <input type="hidden" name="project_id" value="<?php echo $project->id; ?>">
+                <input type="hidden" name="strategy_id" value="<?php echo $strategy->id; ?>">
                 
                 <textarea class="form-control" rows="3" readonly
-                    style="width: 100%;"><?php echo $project->project_name; ?></textarea>
+                    style="width: 100%;"><?php echo $strategy->strategy_name; ?></textarea>
             </div>
 
             <div class="form-group">

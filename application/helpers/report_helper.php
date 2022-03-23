@@ -1,15 +1,15 @@
 <?php
 
 /*
-/* Retrieves activities data by objective_id
+/* Retrieves outcomes data by objective_id
 */
-if (!function_exists('activities')) {
+if (!function_exists('outcomes')) {
     
-    function activities($id,$branchActivity=false){
+    function outcomes($id){
 
         $ci =& get_instance();
         $ci->db->where('objective_id',$id);
-        $query = $ci->db->get(($branchActivity)?'branch_activities':'ncda_activities');
+        $query = $ci->db->get('ncda_outcomes');
         return $query->result();
     }
 }
@@ -22,7 +22,7 @@ if (!function_exists('objectives')) {
     function objectives($id){
 
         $ci =& get_instance();
-        $ci->db->where('project_id',$id);
+        $ci->db->where('strategy_id',$id);
         $query = $ci->db->get('ncda_objectives');
         return $query->result();
     }
@@ -32,13 +32,13 @@ if (!function_exists('objectives')) {
 /*
 /* Retrieves parameters data by activity Id
 */
-if (!function_exists('parameters')) {
+if (!function_exists('indicators')) {
     
-    function parameters($id,$branchActivity=false){
+    function indicators($id){
 
         $ci =& get_instance();
-        $ci->db->where('activity_id',$id);
-        $query = $ci->db->get(($branchActivity)?'branch_activty_parameters':'ncda_parameters');
+        $ci->db->where('outcome_id',$id);
+        $query = $ci->db->get('ncda_indicators');
         return $query->result();
     }
 }
@@ -46,12 +46,12 @@ if (!function_exists('parameters')) {
 /*
 /* Retrieves parameter data by param Id
 */
-if (!function_exists('param_data')) {
+if (!function_exists('indicator_data')) {
     
-    function param_data($id,$branchActivity=false){
+    function indicator_data($id,$branchActivity=false){
 
         $ci =& get_instance();
-        $ci->db->where('parameter_id',$id);
+        $ci->db->where('indicator_id',$id);
 
         if(isset($_GET['from']))
         $ci->db->where("action_date >='".$_GET['from']."'");
@@ -59,7 +59,7 @@ if (!function_exists('param_data')) {
         if(isset($_GET['to']))
         $ci->db->where("action_date <='".$_GET['to']."'");
 
-        $query = $ci->db->get( ($branchActivity)?'ncda_branch_activity_data':'ncda_field_activity_data');
+        $query = $ci->db->get('ncda_field_outcome_data');
         return $query->row();
     }
 }

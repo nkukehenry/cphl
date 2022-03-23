@@ -69,7 +69,7 @@ $(document).ready(function() {
     }
 
 try{
-    $('.summernote').summernote({height: 150 });
+    $('.summernote').summernote({height: 50 });
 }catch(error){
     console.log(error);
 }
@@ -131,12 +131,12 @@ if(isPassChanged!=1){
 
 var url="<?php echo $this->uri->segment(2); ?>";
 
-if(url=="tabular" || url=="actuals"||  url=="fetch_report"|| url=="actualsreport"|| url=="tabular#" || url=="timesheet" || url=="attfrom_report"){
+//if(url=="tabular" || url=="actuals"||  url=="fetch_report"|| url=="actualsreport"|| url=="tabular#" || url=="timesheet" || url=="attfrom_report"){
 
-$('body').addClass('sidebar-collapse');
-$('#sidebar').toggleClass('active');
+//$('body').addClass('sidebar-collapse');
+//$('#sidebar').toggleClass('active');
 
-};
+//};
 
 
 $('.select2').select2()

@@ -85,13 +85,13 @@ $route['translate_uri_dashes'] = FALSE;
 	$route['delete-objective/(:num)'] = 'objectives/delete/$1';
 
 //ACTIVITIES
-	$route['activity-list'] = 'activities/index';
-	$route['activity-list/(:num)'] = 'activities/index/$1';
-	$route['create-activity/(:num)'] = 'activities/create/$1';
-	$route['save-activity'] = 'activities/store';
-	$route['edit-activity/(:num)'] = 'activities/singleActivity/$1';
-	$route['update-activity/(:num)'] = 'activities/update/$1';
-	$route['delete-activity/(:num)'] = 'activities/delete/$1';
+	$route['activity-list'] = 'outcomes/index';
+	$route['activity-list/(:num)'] = 'outcomes/index/$1';
+	$route['create-activity/(:num)'] = 'outcomes/create/$1';
+	$route['save-activity'] = 'outcomes/store';
+	$route['edit-activity/(:num)'] = 'outcomes/singleActivity/$1';
+	$route['update-activity/(:num)'] = 'outcomes/update/$1';
+	$route['delete-activity/(:num)'] = 'outcomes/delete/$1';
 
 
 //PARAMETERS
@@ -128,8 +128,8 @@ $route['translate_uri_dashes'] = FALSE;
 	$route['update-meeting']    = 'meetings/update';
 
 //BRANCH ACTIVITIES
-	$route['branch-acts'] 		= 'bactivities/index';
-	$route['save-branch-act'] 	= 'bactivities/store';
+	$route['branch-acts'] 		= 'boutcomes/index';
+	$route['save-branch-act'] 	= 'boutcomes/store';
 	$route['branch-params'] 	= 'bparameters/index';
 	$route['save-branch-param']   = 'bparameters/store';
 	$route['branch-param/(:num)'] = 'bparameters/index/$1';

@@ -1,10 +1,9 @@
 <!-- Navbar -->
-<nav class="main-header navbar navbar-expand navbar-dark" style="background: #1d80b9;
-    color:inherit; text-align:center;" >
+<nav class="main-header navbar navbar-expand navbar-primary"  >
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        <a class="nav-link text-white" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
       <div class="header-title" style="color:#FFF; margin-top:5px;">
@@ -38,7 +37,7 @@
 
                                     <?php 
 
-                                         echo $userdata['names']; 
+                                         echo @$userdata['names']; 
 
                                        // print_r($userdata); 
 
@@ -51,11 +50,16 @@
    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                     
     <div class="dropdown-divider"></div>
+
+    <?php if(isset($userdata['names'])): ?>
          <a href="#" class="dropdown-item" data-toggle="modal" data-target="#profile"><i class="fa fa-user"></i> Profile</a>  
      
-               <div class="dropdown-divider"></div>
+          <div class="dropdown-divider"></div>
           <a href="<?php echo base_url(); ?>auth/logout" class="dropdown-item"><i class="fa fa-arrow-left"></i> Logout</a>
-    </div> 
+    <?php else: ?>
+      <a href="<?php echo base_url(); ?>auth/login" class="dropdown-item"><i class="fa fa-login"></i> Login</a>
+    <?php endif; ?>
+        </div> 
     </li>
    
     

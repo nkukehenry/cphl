@@ -67,13 +67,13 @@ $route['translate_uri_dashes'] = FALSE;
 	$route['delete-branch-staff/(:num)/(:num)'] = 'districts/delete_district_team/$1/$2';
 	
 //PROJECTS
-	$route['project-list(/:num)?'] = 'projects/index';
-	$route['create-project'] = 'projects/create';
-	$route['save-project']   = 'projects/store';
-	$route['edit-project/(:num)'] = 'projects/singleProject/$1';
-	$route['update-project'] = 'projects/update';
-	$route['delete-project/(:num)'] = 'projects/delete/$1';
-	$route['entry/(:num)'] = 'projects/dataEntry/$1';
+	$route['strategy-list(/:num)?'] = 'strategys/index';
+	$route['create-strategy'] = 'strategys/create';
+	$route['save-strategy']   = 'strategys/store';
+	$route['edit-strategy/(:num)'] = 'strategys/singleProject/$1';
+	$route['update-strategy'] = 'strategys/update';
+	$route['delete-strategy/(:num)'] = 'strategys/delete/$1';
+	$route['entry/(:num)'] = 'strategys/dataEntry/$1';
 
 //OBJECTIVES
 	$route['objective-list'] = 'objectives/index';
@@ -85,31 +85,31 @@ $route['translate_uri_dashes'] = FALSE;
 	$route['delete-objective/(:num)'] = 'objectives/delete/$1';
 	$route['core-objectives'] = 'objectives/core_list';
 
-//ACTIVITIES
-	$route['activity-list'] = 'activities/index';
-	$route['activity-list/(:num)'] = 'activities/index/$1';
-	$route['create-activity/(:num)'] = 'activities/create/$1';
-	$route['save-activity'] = 'activities/store';
-	$route['edit-activity/(:num)'] = 'activities/singleActivity/$1';
-	$route['update-activity/(:num)'] = 'activities/update/$1';
-	$route['delete-activity/(:num)'] = 'activities/delete/$1';
+//OUTCOMES
+	$route['outcome-list'] = 'outcomes/index';
+	$route['outcome-list/(:num)'] = 'outcomes/index/$1';
+	$route['create-outcome/(:num)'] = 'outcomes/create/$1';
+	$route['save-outcome'] = 'outcomes/store';
+	$route['edit-outcome/(:num)'] = 'outcomes/singleOutcome/$1';
+	$route['update-outcome'] = 'outcomes/update';
+	$route['delete-outcome/(:num)'] = 'outcomes/delete/$1';
 
 
-//PARAMETERS
-	$route['parameter-list'] = 'parameters/index';
-	$route['parameter-list/(:num)'] = 'parameters/index/$1';
-	$route['create-parameter/(:num)'] = 'parameters/create/$1';
-	$route['save-parameter']          = 'parameters/store';
-	$route['edit-parameter/(:num)']   = 'parameters/singleParameter/$1';
-	$route['update-parameter']        = 'parameters/update';
-	$route['delete-parameter/(:num)'] = 'parameters/delete/$1';
+//INDICATORS
+	$route['indicator-list'] = 'indicators/index';
+	$route['indicator-list/(:num)'] = 'indicators/index/$1';
+	$route['create-indicator/(:num)'] = 'indicators/create/$1';
+	$route['save-indicator']          = 'indicators/store';
+	$route['edit-indicator/(:num)']   = 'indicators/singleIndicator/$1';
+	$route['update-indicator']        = 'indicators/update';
+	$route['delete-indicator/(:num)'] = 'indicators/delete/$1';
 
 //FACILITIES
 	$route['facility-list'] = 'facilities/index';
 	$route['facility-list/(:num)'] = 'facilities/index/$1';
 	$route['create-facility/(:num)'] = 'facilities/create/$1';
 	$route['save-facility'] = 'facilities/create';
-	$route['edit-facility/(:num)'] = 'facilities/singleParameter/$1';
+	$route['edit-facility/(:num)'] = 'facilities/singleIndicator/$1';
 	$route['update-facility/(:num)'] = 'facilities/update/$1';
 	$route['delete-facility/(:num)/(:num)'] = 'facilities/delete/$1/$2';
 	$route['facility-teams/(:num)'] = 'facilities/facility_teams/$1';
@@ -129,46 +129,26 @@ $route['translate_uri_dashes'] = FALSE;
 	$route['update-meeting']    = 'meetings/update';
 	$route['import-contacts']   = 'meetings/importContacts';
 
-//BRANCH ACTIVITIES
-	$route['branch-acts'] 		= 'bactivities/index';
-	$route['save-branch-act'] 	= 'bactivities/store';
-	$route['branch-params'] 	= 'bparameters/index';
-	$route['save-branch-param']   = 'bparameters/store';
-	$route['branch-param/(:num)'] = 'bparameters/index/$1';
-	$route['branch/dataentry']   = 'bactivities/dataEntry';
-	$route['branch/savedata']    = 'bactivities/submitData';
-	
-
-//FACILITATION
-	$route['facilitation'] 		= 'facilitation/index';
-	$route['save-transaction'] = 'facilitation/store';
-
 //CONTACTS
 	$route['contacts-list(/:num)?'] = 'teams/get_all_teams';
 	
 	//collected data submission
-	$route['submit-data'] = 'projects/submitData';
+	$route['submit-data'] = 'strategys/submitData';
 
 	//Report
-	$route['project_report'] = 'reports/projects';
-	$route['visualize/(:num)'] = 'reports/visual_report/$1';
-	$route['reports/activities']    = 'reports/activities';
+	$route['strategy_report'] = 'reports/strategys';
+	$route['visualize/(:num)?'] = 'reports/visual_report/$1';
+	$route['reports/outcomes']    = 'reports/outcomes';
 	$route['reports/facilitation']    = 'reports/facilitation';
+	$route['visualize'] = 'dashboard/index';
+	$route['report/pdf/(:num)?'] = 'reports/pdf_report/$1';
 
-	//Governance
-	$route['board-list(/:num)?'] = 'governance/index';
-	$route['save-member']   = 'governance/store';
-	$route['update-member'] = 'governance/update';
 
 	//Partners
 	$route['partners(/:num)?'] = 'partners/index';
 	$route['partner_profile/(:num)'] = 'partners/partner/$1';
 	$route['save-partner'] = 'partners/save_partner';
 
-	//Subscriber
-	$route['subscribers(/:num)?'] = 'subscribers/index';
-	$route['subscriber/(:num)'] = 'subscribers/subscriber/$1';
-	$route['save-subscriber'] = 'subscribers/save_subscriber';
 
 	
 

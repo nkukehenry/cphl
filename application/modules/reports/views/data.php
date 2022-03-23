@@ -3,10 +3,10 @@
 <div class="container">
 
 
-<form action="<?php echo base_url(); ?>project_report" method="post" id="report_form">
-    <h6 class="text-muted">Choose Project</h6>
+<form action="<?php echo base_url(); ?>strategy_report" method="post" id="report_form">
+    <h6 class="text-muted">Choose Strategy</h6>
 
-      <?php require_once('project_select.php'); ?>
+      <?php require_once('strategy_select.php'); ?>
 
     </form>
 
@@ -18,13 +18,13 @@
 
 </div>
 
-<!-- data-imagesrc="<?php echo base_url();?>assets/images/project.png" -->
+<!-- data-imagesrc="<?php echo base_url();?>assets/images/strategy.png" -->
 
 <script>
 $(document).ready(function(){
 
     $("#selector").ddslick({
-    selectText: "Select Project",
+    selectText: "Select Strategy",
     width: '100%',
     background:'#ffffff',
     imagePosition: "left",
@@ -35,11 +35,15 @@ $(document).ready(function(){
         showLoader()
 
         $.ajax({
-            url:'<?=base_url()?>project_report',
+            url:'<?=base_url()?>strategy_report',
             method:'Post',
-            data:{'project':selectedData.selectedData.value},
+            data:{'strategy':selectedData.selectedData.value},
             success:function(response){
                 $('#report').html(response);
+                hideLoader();
+            },
+            error:function(error){
+                console.log(error);
                 hideLoader();
             }
         });
@@ -81,7 +85,7 @@ source: states.ttAdapter(),
 templates: {
 /*empty: [
 '<div class="empty-message">',
-'Type here to search project by name !',
+'Type here to search strategy by name !',
 '</div>'
 ].join('\n'),*/
 suggestion: function (data) {

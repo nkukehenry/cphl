@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>NCDA | Login</title>
+    <title><?=setting()->title?> | Login</title>
 
     <!-- <link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -488,12 +488,12 @@ $(window).on('resize', function(){
     </div>
 
   
-      <h2 style="margin: 0 auto !imporntant;">NCDA LOGIN </h2>
+      <h2 style="margin: 0 auto !imporntant;"><?=setting()->title?></h2>
       
     </div>
     
     <div class='box-login'>
-    <img src="<?php echo base_url(); ?>/assets/images/aaaaa.jpeg" width="120" height="120">
+    <img src="<?php echo base_url(); ?>/assets/images/uganda.png" width="120" height="120">
     <p style="color:blue;"><?php echo $this->session->flashdata('msg'); ?></p>
       <form class='fieldset-body' id='login_form' role="form" method="post" action="<?php echo base_url(); ?>auth/login">
         
@@ -518,7 +518,7 @@ $(window).on('resize', function(){
  
 </div>
 
-<div class='icon-credits'> <a href="http://health.go.ug" title="MOH" target="_blank">NCDA Uganda <?php echo date('Y');?></a></div>
+<div class='icon-credits'> <a href="http://health.go.ug" title="MOH" target="_blank">CPHL Uganda <?php echo date('Y');?></a></div>
 
   
 </body>

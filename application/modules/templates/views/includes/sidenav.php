@@ -2,15 +2,16 @@
  <!-- Main Sidebar Container -->
  
  
- <aside class="main-sidebar sidebar-dark-primary elevation-4" >
+ <aside class="main-sidebar sidebar-primary-dark bg-white  elevation-4" >
     <!-- Brand Logo -->
-    <a href="<?php echo base_url();?>" class="brand-link" style="background: #1d80b9;
-    color: #FFFFFF; text-align:center;">
+    <a href="<?php echo base_url();?>" class="brand-link bg-primary" style="color: #FFFFFF; text-align:center;">
       <!-- <img src="../../dist/img/AdminLTELogo.png"
            alt="AdminLTE Logo"
            class="brand-image img-circle elevation-3"
            style="opacity: .8"> -->
-      <span class="brand-text  font-weight-bold" style="text-align:center;"><?php echo $setting->title; ?></span>
+      <span class="brand-text text-white  font-weight-bold" style="text-align:center; font-size: 10pt!important;">
+      <small><?php echo $setting->title; ?></small>
+     </span>
     </a>
 
     <!-- Sidebar -->
@@ -18,11 +19,12 @@
       <!-- Sidebar user (optional) -->
       
       <div class="user-panel mt-3 pb-3 mb-3" style="text-align:center; line-height:0.2cm;">
-
+        <?php if(isset($userdata['names'])): ?>
         <div class="image">
-          <img src="<?php echo base_url(); ?>assets/img/user.jpg" class="img-circle elevation-2" alt="User Image" style="width:50px; height:50px;">
-           <span class="text-white"><?php   echo strtoupper(truncate($userdata['names'],1230));  ?></span>
+          <img src="<?php echo base_url(); ?>assets/img/user.jpg" class="img-circle elevation-2" alt="User Image" style="width:40px; height:40px;">
+           <span class="text-muted ml-1"><?php   echo strtoupper(truncate($userdata['names'],1230));  ?></span>
         </div>
+        <?php endif; ?>
       
     </div>
 
@@ -41,82 +43,35 @@
             </a>
           </li>
 
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-gavel"></i>
-                <p>
-                    Governance
-                    <i class="fas fa-angle-left right"></i>
-                    <span class="badge badge-info right"></span>
-                </p>
-            </a>
-            <ul class="nav nav-treeview">
-            <li class="nav-item">
-                    <a href="<?=site_url('board-list')?>" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Board Members</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?=site_url('core-objectives')?>" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Core Objectives</p>
-                    </a>
-                </li>
-            </ul>
-        </li>
 
-        <li class="nav-item">
-            <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-users"></i>
-                <p>
-                    Membership
-                    <i class="fas fa-angle-left right"></i>
-                    <span class="badge badge-info right"></span>
-                </p>
-            </a>
-            <ul class="nav nav-treeview">
-            <li class="nav-item">
-                    <a href="<?=site_url('partners')?>" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Partners</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?=site_url('subscribers')?>" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Subscribers</p>
-                    </a>
-                </li>
-            </ul>
-        </li>
-
-
+        <?php if(in_array('35', $permissions)): ?>
           <li class="nav-item">
             <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-copy"></i>
                 <p>
-                    Projects
+                    KPI Setup
                     <i class="fas fa-angle-left right"></i>
                     <span class="badge badge-info right"></span>
                 </p>
             </a>
             <ul class="nav nav-treeview">
             <li class="nav-item">
-                    <a href="<?=site_url('create-project')?>" class="nav-link">
+                    <a href="<?=site_url('create-strategy')?>" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>Create Project</p>
+                        <p>Create Strategy</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?=site_url('project-list')?>" class="nav-link">
+                    <a href="<?=site_url('strategy-list')?>" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>List Projects</p>
+                        <p>View Strategies</p>
                     </a>
                 </li>
             </ul>
-        </li>
+            </li>
+        <?php endif; ?>
      
+         <!--
         
         <li class="nav-item">
             <a href="#" class="nav-link">
@@ -141,11 +96,12 @@
                 </li>
             </ul>
         </li>
+
         <li class="nav-item">
             <a href="#" class="nav-link">
                 <i class="nav-icon fa fa-map"></i>
                 <p>
-                    Locations/Territory
+                    Places
                     <i class="fas fa-angle-left right"></i>
                 </p>
             </a>
@@ -153,7 +109,7 @@
                 <li class="nav-item">
                     <a href="<?=site_url('district-list')?>" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>Branches</p>
+                        <p>Districts</p>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -172,32 +128,6 @@
         </li>
 
         <li class="nav-item">
-            <a href="#" class="nav-link">
-                <i class="nav-icon fa fa-list"></i>
-                <p>
-                    Branch Activities
-                    <i class="fas fa-angle-left right"></i>
-                </p>
-            </a>
-            <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <a href="<?=site_url('branch-acts')?>" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Regular Activities</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="<?=site_url('facilitation')?>" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Facilitation</p>
-                    </a>
-                </li>
-                
-            </ul>
-        </li>
-        
-        <li class="nav-item">
             <a href="<?=base_url()?>contacts" class="nav-link">
                 <i class="nav-icon far fa-calendar-alt"></i>
                 <p>
@@ -205,7 +135,7 @@
                     <span class="badge badge-info right">People</span>
                 </p>
             </a>
-        </li>
+        </li>-->
        <!--  <li class="nav-item">
             <a href="#" class="nav-link">
                 <i class="nav-icon fa fa-archive"></i>
@@ -223,7 +153,22 @@
                 </li>
             </ul>
         </li> -->
-        <li class="nav-item">
+
+        <li class="nav-item has-treeview">
+            <a href="<?=base_url()?>strategy_report" class="nav-link">
+                <i class="nav-icon fas fa-list"></i>
+                <p>Tabular Metrics Report</p>
+            </a>
+          </li>
+
+          <li class="nav-item has-treeview">
+           <a href="<?=base_url()?>visualize" class="nav-link">
+                <i class="fas  fa-chart-pie nav-icon"></i>
+                <p>Visualization Report</p>
+            </a>
+          </li>
+          
+        <!--<li class="nav-item">
             <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-list"></i>
                 <p>
@@ -233,25 +178,19 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="<?=base_url()?>project_report" class="nav-link">
+                    <a href="<?=base_url()?>strategy_report" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>Project Report</p>
+                        <p>Strategy Tabular Report</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?=base_url()?>reports/activities" class="nav-link">
+                    <a href="<?=base_url()?>visualize" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>Branch Activities Report</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?=base_url()?>reports/facilitation" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Facilitation Report</p>
+                        <p>Visualization Report</p>
                     </a>
                 </li>
             </ul>
-        </li>
+        </li>-->
            <!--user perm 14-->
           <?php if(in_array('35', $permissions)){ ?>
           <li class="nav-item has-treeview ">

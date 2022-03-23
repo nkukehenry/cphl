@@ -28,10 +28,17 @@ if (!function_exists('get_flash')) {
 //read from language file
 
 if (!function_exists('lang')) {
-    function lang($string)
+    function lang($string,$plural=false,$capital=false)
     {
         $ci =& get_instance();
-        return $ci->lang->line($string);
+
+        $phrase = $ci->lang->line($string);
+
+        if($plural)
+            $phrase = $phrase."s";
+        if($capital)
+            $phrase = strtoupper($phrase);
+        return $phrase;
     }
 }
 
@@ -104,7 +111,7 @@ function time_ago($timestamp)
     $years = round($seconds / 31553280);     //(365+365+365+365+366)/5 * 24 * 60 * 60
 
     if ($seconds <= 60) {
-        return "Just_now";
+        return "Just now";
     } else if ($minutes <= 60) {
         if ($minutes == 1) {
             return "1 " . "Minute" . " " . "ago";
@@ -209,22 +216,22 @@ if (!function_exists('poeple_titles')) {
     }
 }
 
-if (!function_exists('parameter_score')) {
-    function parameter_score($paramId,$facilityId=null){
+if (!function_exists('indicator_score')) {
+    function indicator_score($indicatorId,$facilityId=null){
          $ci =& get_instance();
 
-        $ci->load->model("projects_model",'projectsModel');
-        return $ci->projectsModel->getParamScore($paramId,$facilityId);
+        $ci->load->model("strategys_model",'strategysModel');
+        return $ci->strategysModel->getParamScore($indicatorId,$facilityId);
          
     }
 }
 
-if (!function_exists('branch_parameter_score')) {
-    function branch_parameter_score($paramId,$facilityId=null){
+if (!function_exists('branch_indicator_score')) {
+    function branch_indicator_score($indicatorId,$facilityId=null){
          $ci =& get_instance();
          
-            $ci->load->model("bactivities_model",'activitiesModel');
-            return $ci->activitiesModel->getParamScore($paramId,$facilityId);
+            $ci->load->model("boutcomes_model",'outcomesModel');
+            return $ci->outcomesModel->getParamScore($indicatorId,$facilityId);
          
     }
 }

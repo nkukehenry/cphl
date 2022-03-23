@@ -1,11 +1,11 @@
 
 <?php 
 $userdata=$this->session->get_userdata(); 
-if   (!isset($userdata['names'])){
-  redirect('auth');
-}
+//if(!isset($userdata['names'])){
+ // redirect('auth');
+//}
 
-$permissions=$userdata['permissions'];
+$permissions= (isset($userdata['permissions']))?$userdata['permissions']:[];
 
  ?>
 <!DOCTYPE html>
@@ -355,6 +355,6 @@ body::-webkit-scrollbar-thumb
 </style>
 
 </head>
-<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed">
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed sidebar-collapse">
 <!-- Site wrapper -->
 <div class="wrapper">

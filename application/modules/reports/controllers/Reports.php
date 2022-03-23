@@ -8,14 +8,13 @@ class Reports extends MX_Controller {
 
 		parent::__Construct();
 
-		$this->load->model("projects/projects_model",'projectsModel'); //Projects model
+		$this->load->model("strategys/strategys_model",'strategysModel'); //Strategys model
         $this->load->model("objectives/objectives_model",'objectivesModel'); //Objectives model
-        $this->load->model("activities/activities_model",'activitiesModel'); //Activities model
+        $this->load->model("outcomes/outcomes_model",'outcomesModel'); //Activities model
         $this->load->model("districts/districts_model",'districtsModel'); //Districts model
-        $this->load->model("parameters/parameters_model",'parametersModel'); //Districts model
+        $this->load->model("indicators/indicators_model",'indicatorsModel'); //Districts model
         $this->load->model("facilities/facilities_model",'facilitiesnModel');
 
-        $this->load->model("facilitation/facilitation_model",'facilitationModel'); //Facilitation model
         $this->load->model("facilities/facilities_model",'facilitiesnModel');
     
 
@@ -23,17 +22,17 @@ class Reports extends MX_Controller {
 
 	}
 
-	public function projects(){
+	public function strategys(){
 
-		$projectId = ($this->input->post('project')!=null)?$this->input->post('project'):null;
+		$strategyId = ($this->input->post('strategy')!=null)?$this->input->post('strategy'):null;
 
-		$data['projects']	= $this->projectsModel->get(100,0);
-		$data['objectives'] = ($projectId != null)?objectives($projectId):[];
-		$data['project']    = null;
+		$data['strategys']	= $this->strategysModel->get(100,0);
+		$data['objectives'] = ($strategyId != null)?objectives($strategyId):[];
+		$data['strategy']    = null;
 
-		if($projectId !=null ){
-			$data['project'] = $this->projectsModel->find($projectId);
-			$html = $this->load->view('report_projects',$data,true);
+		if($strategyId !=null ){
+			$data['strategy'] = $this->strategysModel->find($strategyId);
+			$html = $this->load->view('report_strategys',$data,true);
 			echo $html;
 			return;
 		}
@@ -46,41 +45,54 @@ class Reports extends MX_Controller {
 
 	}
 
-	public function visual_report($projectId){
+	public function visual_report($strategyId=null){
 
-		$data['objectives'] = ($projectId != null)?objectives($projectId):[];
-		$data['project']    = $this->projectsModel->find($projectId);
+		if($strategyId==null)
+		 $strategyId= (isset($_GET['strategy']))?$_GET['strategy']:null;
 
-		$data['title']  = "Project Visualization Report";
-        $data['view']   = "project_visualization";
+		$data['strategys']	= $this->strategysModel->get(100,0);
+
+		if($strategyId==null)
+		$strategyId = (count($data['strategys'])>0)?$data['strategys'][0]->id:null;
+
+		$data['objectives'] = ($strategyId != null)?objectives($strategyId):[];
+		$data['strategy']    = $this->strategysModel->find($strategyId);
+
+		$data['title']  = "Strategy Visualization Report";
+        $data['view']   = "strategy_visualization";
 		$data['module'] = $this->module;
         
         echo Modules::run('templates/main',$data);
 	}
 
-	public function activities($value='')
+	public function outcomes($value='')
 	{
 		
 		$data['objectives'] = $this->objectivesModel->core_objectives();
 		$data['title']      = "Branch Activity Report";
-        $data['view']       = "report_activities";
+        $data['view']       = "report_outcomes";
 		$data['module']     = $this->module;
         
         echo Modules::run('templates/main',$data);
 	}
 
-	 
-    public function facilitation()
-    {   
-        $data['transactions'] = $this->facilitationModel->get();
-        $data['facilities']   = $this->facilitiesnModel->get();
-        
-        $data['module'] = $this->module;
-        $data['title']  = "Facilitation Report";
-        $data['view']="facilitation_report";
+	public function pdf_report($strategyId ){
 
-        echo Modules::run('templates/main',$data);
-    }
+		$data['strategys']	= $this->strategysModel->get(100,0);
+		$data['objectives'] = ($strategyId != null)?objectives($strategyId):[];
+		$data['strategy']    = null;
+
+		if($strategyId !=null ){
+			$data['strategy'] = $this->strategysModel->find($strategyId);
+			$data['hide_menu'] = true;
+			$html = $this->load->view('pdf_export',$data,true);
+			$file_name = str_replace(" ","_",$data['strategy']->strategy_name)."_".time();
+
+			//echo $html;
+			make_pdf($html,$file_name,"D",true);
+		}
+	}
+
 	
 
 }
