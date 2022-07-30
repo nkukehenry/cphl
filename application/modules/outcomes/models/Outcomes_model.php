@@ -11,10 +11,11 @@ class Outcomes_model extends CI_Model{
     public function insert()
     {    
         $data = array(
-            'outcome_name' => $this->input->post('outcome_name'),
+            'outcome_name'        => $this->input->post('outcome_name'),
             'outcome_description' => $this->input->post('outcome_description'),
-            'objective_id' => $this->input->post('objective_id'),
-            'created_by' => $this->input->post('created_by')
+            'objective_id'        => $this->input->post('objective_id'),
+            'target'              => $this->input->post('target'),
+            'created_by'          => $this->input->post('created_by')
         );
         return $this->db->insert('ncda_outcomes', $data);
     }
@@ -23,10 +24,11 @@ class Outcomes_model extends CI_Model{
     public function update() 
     {
         $data = array(
-            'outcome_name' => $this->input->post('outcome_name'),
+            'outcome_name'        => $this->input->post('outcome_name'),
             'outcome_description' => $this->input->post('outcome_description'),
-            'objective_id' => $this->input->post('objective_id'),
-            'created_by' => $this->input->post('created_by')
+            'objective_id'        => $this->input->post('objective_id'),
+            'target'              => $this->input->post('target'),
+            'created_by'          => $this->input->post('created_by')
         );
        
         $this->db->where('id',$this->input->post('id'));

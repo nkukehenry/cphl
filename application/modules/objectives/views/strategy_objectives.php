@@ -32,7 +32,7 @@ class="btn btn-success btn-sm pull-right">New Objective <i class="fas fa-plus"><
         <tr>
             <th style="width: 10px">#</th>
             <th>Objective</th>
-            <th>Outcomes</th>
+            <th>Result Definitions</th>
             <th style="width: 150px">Action</th>
         </tr>
     </thead>
@@ -49,7 +49,7 @@ class="btn btn-success btn-sm pull-right">New Objective <i class="fas fa-plus"><
                 <td><?php echo truncate($obj->objective_name,200); ?></td>
                 <td>
                     <a href="<?php echo base_url('outcome-list/'.$obj->id);?>" 
-                    class="btn btn-success btn-sm">Outcomes</a>
+                    class="btn btn-success btn-sm">Result Definitions</a>
                 </td>
                 <td>
                     <div class="btn-group">

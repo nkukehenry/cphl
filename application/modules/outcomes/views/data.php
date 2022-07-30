@@ -1,7 +1,7 @@
 <div class="btn-group">
 <a href="<?php echo base_url('objective-list/'.$objective->strategy_id);?>" 
 class="btn btn-primary btn-sm pull-right"><i class="fas fa-arrow-left"></i> Back to  Strategy Objective</a>
-<a href="#add_outcome" data-toggle="modal" class="btn btn-success btn-sm pull-right"><i class="fas fa-plus"></i> Create New outcome</a>
+<a href="#add_outcome" data-toggle="modal" class="btn btn-success btn-sm pull-right"><i class="fas fa-plus"></i> Create Result Definition</a>
 </div>
 
 
@@ -21,13 +21,13 @@ class="btn btn-primary btn-sm pull-right"><i class="fas fa-arrow-left"></i> Back
 </div>
 <br>
 
-<h4 class="text-muted">Overall Outcomes</h4>
+<h4 class="text-muted">Overall  Result Definitions </h4>
 
 <table class="table table-bordered">
     <thead>
         <tr>
             <th style="width: 10px">#</th>
-            <th>Outcome</th>
+            <th>Result Definition</th>
             <th>Indicators</th>
             <th style="width: 150px">Action</th>
         </tr>
@@ -45,7 +45,7 @@ class="btn btn-primary btn-sm pull-right"><i class="fas fa-arrow-left"></i> Back
                 <td><?php echo $outcome->outcome_name; ?></td>
                 <td>
                     <a href="<?php echo base_url('indicator-list/'.$outcome->id);?>" 
-                    class="btn btn-success btn-sm">Indicators</a>
+                    class="btn btn-success btn-sm">View Indicators</a>
                 </td>
                 <td>
                     <a href="#edit_outcome<?=$outcome->id?>"  data-toggle="modal"

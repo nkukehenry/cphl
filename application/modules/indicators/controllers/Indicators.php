@@ -18,7 +18,7 @@ class Indicators extends MX_Controller
         $data['outcome']   = $this->outcomesModel->find($id);
         
         $data['module'] = $this->module;
-        $data['title']  = "Outcome Indicators";
+        $data['title']  = "Output Indicators";
         $data['view']="data";
 
         echo Modules::run('templates/main',$data);
@@ -28,7 +28,7 @@ class Indicators extends MX_Controller
     public function create($id){ // add indicators form
     
         $data['module']=$this->module;
-        $data['title']="Create an Indicator";
+        $data['title']="Create an Output";
 
         $outcome = $this->outcomesModel->find($id);
         $data['actv_name'] = $outcome->outcome_name;
@@ -41,7 +41,7 @@ class Indicators extends MX_Controller
     public function store() { //save indicator
         $this->indicatorsModel->insert();
         $outcomeId = $this->input->post('outcome_id');
-        set_flash('Indicator saved successfully');
+        set_flash('Output saved successfully');
         return redirect(site_url('indicator-list/'.$outcomeId));
     }
 
@@ -62,7 +62,7 @@ class Indicators extends MX_Controller
 
         $this->indicatorsModel->update();
         $outcomeId = $this->input->post('outcome_id');
-        set_flash('Indicator updated successfully');
+        set_flash('Output updated successfully');
         return redirect(site_url('indicator-list/'.$outcomeId));
     }
  

@@ -16,21 +16,19 @@ class Reports extends MX_Controller {
         $this->load->model("facilities/facilities_model",'facilitiesnModel');
 
         $this->load->model("facilities/facilities_model",'facilitiesnModel');
-    
-
 		$this->module = 'reports';
-
 	}
 
 	public function strategys(){
 
 		$strategyId = ($this->input->post('strategy')!=null)?$this->input->post('strategy'):null;
 
-		$data['strategys']	= $this->strategysModel->get(100,0);
-		$data['objectives'] = ($strategyId != null)?objectives($strategyId):[];
+		$data['strategys']	 = $this->strategysModel->get(100,0);
+		$data['objectives']  = ($strategyId != null)?objectives($strategyId):[];
 		$data['strategy']    = null;
 
 		if($strategyId !=null ){
+
 			$data['strategy'] = $this->strategysModel->find($strategyId);
 			$html = $this->load->view('report_strategys',$data,true);
 			echo $html;
@@ -47,15 +45,15 @@ class Reports extends MX_Controller {
 
 	public function visual_report($strategyId=null){
 
-		if($strategyId==null)
-		 $strategyId= (isset($_GET['strategy']))?$_GET['strategy']:null;
+		if($strategyId == null)
+		 $strategyId   = (isset($_GET['strategy']))?$_GET['strategy']:null;
 
 		$data['strategys']	= $this->strategysModel->get(100,0);
 
-		if($strategyId==null)
+		if($strategyId == null)
 		$strategyId = (count($data['strategys'])>0)?$data['strategys'][0]->id:null;
 
-		$data['objectives'] = ($strategyId != null)?objectives($strategyId):[];
+		$data['objectives']  = ($strategyId != null)?objectives($strategyId):[];
 		$data['strategy']    = $this->strategysModel->find($strategyId);
 
 		$data['title']  = "Strategy Visualization Report";
@@ -83,7 +81,8 @@ class Reports extends MX_Controller {
 		$data['strategy']    = null;
 
 		if($strategyId !=null ){
-			$data['strategy'] = $this->strategysModel->find($strategyId);
+			
+			$data['strategy']  = $this->strategysModel->find($strategyId);
 			$data['hide_menu'] = true;
 			$html = $this->load->view('pdf_export',$data,true);
 			$file_name = str_replace(" ","_",$data['strategy']->strategy_name)."_".time();

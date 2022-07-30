@@ -17,20 +17,22 @@
 <div class="card list-card" style="border-left: 10px solid green;">
     <div class="card-body">
         <div class="col-md-12">
-            <label>Overall Outcome:</label>
+            <label>Indicators:</label>
              <h5><?php echo $outcome->outcome_name; ?></h5>
         </div>
     </div>
 </div>
 <br>
 
-<h4 class="text-muted">Overall Outcome Indicators</h4>
+<h4 class="text-muted">Outputs</h4>
 
 <table class="table table-bordered">
 <thead>
     <tr>
         <th style="width: 10px">#</th>
-        <th>Indicator Title</th>
+        <th>Indicator Definition</th>
+        <th>Outcome/Output</th>
+        <td>Frequency</td>
         <th>Details</th>
         <th style="width: 150px">Action</th>
     </tr>
@@ -46,6 +48,8 @@
         <tr>
             <td><?php echo $i; ?></td>
             <td><?php echo $indicator->indicator_name; ?></td>
+            <td></td>
+            <td></td>
             <td><?php echo $indicator->indicator_description; ?></td>
             <td>
                 <a href="#edit_indicator<?=$indicator->id?>" data-toggle="modal" class="btn btn-primary btn-sm">Edit Indicator</a> 

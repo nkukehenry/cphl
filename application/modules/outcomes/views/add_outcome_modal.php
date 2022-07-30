@@ -5,7 +5,7 @@
         <div class="modal-content">
                      
             <div class="modal-header"> 
-            <h4>Add New outcome</h4>
+            <h4>Add Result Definition</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <h3 aria-hidden="true">&times;</h3>
                 </button>
@@ -15,7 +15,7 @@
             </div>
             <div class="modal-footer">
                     <button type="submit" class="btn btn-success pull-right">   
-                            Save Outcome <i class="fas fa-plus"></i>
+                            Submit <i class="fas fa-plus"></i>
                     </button>
             </div>
         </div>

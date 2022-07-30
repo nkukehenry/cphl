@@ -7,8 +7,8 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="<?=site_url('outcome-list')?>/<?php echo $objective_obj['id']; ?>">Outcome List</a></li>
-                        <li class="breadcrumb-item active">New Outcome</li>
+                        <li class="breadcrumb-item"><a href="<?=site_url('outcome-list')?>/<?php echo $objective_obj['id']; ?>">Result Areas List</a></li>
+                        <li class="breadcrumb-item active">Result Result Definition</li>
                     </ol>
                 </div>
             </div>
